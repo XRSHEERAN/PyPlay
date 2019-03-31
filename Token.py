@@ -17,12 +17,19 @@ print('Token:'+str(sum(c.values())));
 print('Type:'+str(len(c)))
 print('Top Twenty:')
 print(c.most_common(20))
+lst=[]
+for word in c.most_common(len(c)):
+  lst.append(word[1])
+x=range(1,len(lst)+1)
+print(len(x))
+plt.scatter(x,lst)
+plt.savefig('grf.png')
 
-#plt.scatter(x,lst)
-#plt.show()
-
-with open('num.txt',"wb") as f:
-    pickle.dump(c,f)
-with open('num.txt',"rb") as f:
-    t=pickle.load(f)
-print(t.most_common(20))
+lst=[]
+for word in c.most_common(len(c)):
+  lst.append(word[1])
+x=range(1,len(lst)+1)
+lst=[math.log(n) for n in lst]
+x=[math.log(n) for n in x]
+plt.scatter(x,lst)
+plt.savefig('log.png')//linear
