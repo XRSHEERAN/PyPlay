@@ -1,0 +1,6 @@
+import numpy as np
+
+car=np.genfromtxt('cardata.csv', dtype=None, delimiter=',', names=True)
+
+print('Retail: '+str(np.mean(car['Retail'])))#price
+print('Horse Power: '+str(np.mean(car['Horsepower'])))
