@@ -6,4 +6,21 @@ print('Retail: '+str(np.mean(car['Retail'])))#price
 print('Horse Power: '+str(np.mean(car['Horsepower'])))
 #Get for Eigen
 cal=car[list(car.dtype.names)[2:]]
-print(cal)
+#mean
+cal['Horsepower'][0]=200
+std=[]
+mn=[]
+count=0
+for word in cal.dtype.names:
+  std.append(np.std(cal[word]))
+  mn.append(np.mean(cal[word]))
+nc=[]
+for entry in cal:
+  temp=[]
+  for num in range(0,len(entry)):
+    
+    entry[num]=(entry[num]-mn[num])/std[num]
+    temp.append(entry[num])
+  nc.append(temp)
+V=np.cov(np.array(nc))
+print(len(V))
