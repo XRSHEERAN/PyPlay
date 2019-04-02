@@ -25,8 +25,6 @@ for entry in cal:
 V=np.cov(np.array(nc).T)
 ev , eig = np.linalg.eig(V)
 #sort the values
-idx = eig.argsort()[::-1]   
-eig = eig[idx]
-ev = ev[:,idx]
-
-print(eig)
+eig = np.sort(eig)
+ev = ev[ev.argsort()]
+print(ev)
