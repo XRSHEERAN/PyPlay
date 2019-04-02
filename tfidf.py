@@ -30,7 +30,12 @@ with open(path) as f:
 maxNum=c.most_common(1)[0][1]
 lst=[]
 for word in c:
-    tf=word[0][1]/maxNum #tf
-    idf=math.log(total/idfc[word[0][0]],10)
-    lst.append(tf*idf)
-
+  
+    tf=c[word]/maxNum #tf
+    idf=math.log(total/idfc[word],10)
+    if word=='contract':
+      print(tf*idf)
+    pr=[word]
+    pr.append(tf*idf)
+    lst.append(pr)
+print(sorted(lst,key=lambda l:l[1], reverse=True)[:10])
