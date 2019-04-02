@@ -22,5 +22,11 @@ for entry in cal:
     entry[num]=(entry[num]-mn[num])/std[num]
     temp.append(entry[num])
   nc.append(temp)
-V=np.cov(np.array(nc))
-print(len(V))
+V=np.cov(np.array(nc).T)
+ev , eig = np.linalg.eig(V)
+#sort the values
+idx = eig.argsort()[::-1]   
+eig = eig[idx]
+ev = ev[:,idx]
+
+print(eig)
