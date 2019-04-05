@@ -1,2 +1,7 @@
 # PyNLP
-Python Tools for NN Homework
+My Python Playground
+### NLP
+Tools for tokenizing and PCA
+
+### Scrapping
+
